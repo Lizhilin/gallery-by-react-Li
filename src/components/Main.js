@@ -14,15 +14,46 @@ imageDatas = (function getImageURL(imageDatasArr) {
 		singleImageData.imageURL = require('../images/'+ singleImageData.fileName)
 		imageDatasArr[i] = singleImageData;
 	}
+
 	return imageDatasArr;
 })(imageDatas);
 
+var ImgFigure  = React.createClass({
+	render(){
+		return(
+			<figure className="img-figure">
+				<div className="imgbox">
+					<img src={this.props.data.imageURL} alt={this.props.data.title}/>
+				</div>
+				<figcaption>
+					<h2 className="img-title">{this.props.data.title}</h2>
+				</figcaption>
+			</figure>
+		)
+	}
+})
+
 var GalleryByReactApp = React.createClass({
 	render: function () {
+
+		var controllerUnits = [],
+			imgFigures = [];
+
+		imageDatas.forEach(function (value,index) {
+			imgFigures.push( <ImgFigure key={index} data={value} /> );
+		});
+		//for(var i in imageDatas){
+		//	imgFigures.push( <ImgFigure key={i} data={imageDatas[i]} /> );
+		//}
+
 		return(
 			<section className="stage">
-				<section className="ima-sec"></section>
-				<nav className="controller-nav"></nav>
+				<section className="ima-sec">
+					{imgFigures}
+				</section>
+				<nav className="controller-nav">
+					{controllerUnits}
+				</nav>
 			</section>
 		);
 	}
