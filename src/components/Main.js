@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';//不要忘记引入
 import React from 'react';
 
 require('normalize.css/normalize.css');
@@ -63,16 +63,16 @@ var GalleryByReactApp = React.createClass({
 		var stageDOM = ReactDOM.findDOMNode(this.refs.stage),
 			stageW = stageDOM.scrollWidth,
 			stageH = stageDOM.scrollHeight,
-			halfStageW = Math.ceil(stageW /2),
-			halfStageH = Math.ceil(stageH /2);
+			halfStageW = Math.floor(stageW /2),
+			halfStageH = Math.floor(stageH /2);
 		console.log(stageDOM)
 
 		//拿到一个 imageFigure 的大小
 		var imgFigureDOM = ReactDOM.findDOMNode(this.refs.imgFigure0),
 			imgW = imgFigureDOM.scrollWidth,
 			imgH = imgFigureDOM.scrollHeight,
-			halfImgW = Math.ceil(imgW/2),
-			halfImgH = Math.ceil(imgH/2);
+			halfImgW = Math.floor(imgW/2),
+			halfImgH = Math.floor(imgH/2);
 		//计算中心图片的位置点
 		this.Constant.centerPos ={
 			left: halfStageW - halfImgW,//舞台的一半宽减去图片的一半宽
