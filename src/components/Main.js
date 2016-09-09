@@ -1,11 +1,12 @@
 import ReactDOM from 'react-dom'
+import React from 'react';
 
 require('normalize.css/normalize.css');
 require('../styles/App.scss');
 //获取图片相关数据
 var imageDatas = require('../data/imagesDatas.json');
 
-import React from 'react';
+
 
 //let yeomanImage = require('../images/yeoman.png');
 
@@ -21,9 +22,11 @@ imageDatas = (function getImageURL(imageDatasArr) {
 })(imageDatas);
 
 //取一个区间的随机值
-function getRangeRandom(low, high){
-	return Math.ceil(Math.random() * (high- low) + low);
-}
+/*function getRangeRandom(low, high){
+	return Math.floor(Math.random() * (high- low) + low);
+}*/
+//这写法帅(′д｀ )…彡…彡
+var getRangeRandom = (low, high) => Math.floor(Math.random() * (high- low) + low);
 
 var ImgFigure  = React.createClass({
 	render(){
